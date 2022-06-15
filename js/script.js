@@ -27,39 +27,34 @@ myBtn.addEventListener('click', gameStart)
     // console.log(myBtn)
 
    function gameStart(){
-    // Raccolta dati
+    //Richiamo elementi del DOM
+    let grid = document.getElementById('#main-grid');
+    console.log('questo è grid', grid);
+    
 
+
+    // Raccolta dati
     // Chiedo all'utente che livello di difficioltà vuole scegliere
     let dificultLevel = document.querySelector('#difficulty').value;
-    console.log('difficult level = ',dificultLevel)
+    console.log('difficult level = ',dificultLevel);
 
+    // creo una variabiale che definisca il numeroMax di celle divise per livello di difficoltà
     let rangeMax;
+    let gridClass;
 
     if(dificultLevel === 'easy'){
         rangeMax = 100;
-        
+        gridClass = 'easy';
     } else if(dificultLevel === 'hard'){
         rangeMax = 81;
-     
+        gridClass = 'hard';
     } else if(dificultLevel === 'crazy'){
         rangeMax = 49;
-        
+        gridClass = 'crazy';
     }
 
-    console.log('range max', rangeMax)
-
-    // while(dificultLevel ){
-    //     let errorMessage = alert('nun ce provà')
-    //     if(dificultLevel !== 1){
-    //         errorMessage
-    //     }else if(dificultLevel !== 2){
-    //         errorMessage
-    //     }else if (dificultLevel !== 3){
-    //         errorMessage
-    //     } else {
-    //         dificultLevel
-    //     }
-    // }
+    // console.log('range max', rangeMax)
+    // console.log('Questo è grid class', gridClass)
 
 
     // Genero le bombe
@@ -78,40 +73,54 @@ myBtn.addEventListener('click', gameStart)
 
     let arrayUserNumber = [];
 
-    while(gamePlay === true){
-        // richiedo il numero all'utente finchè..
-        let userNumber = parseInt (prompt('inserisci un numero tra 1 e ' + rangeMax));
+   
+    // creo un ciclo while che determini la fine del gioco
+    // while(gamePlay === true){
+    //     // richiedo il numero all'utente finchè..
+    //     let userNumber = parseInt (prompt('inserisci un numero tra 1 e ' + rangeMax));
 
+    //     // se il numero generato include il numero dell'utente
+    //     if(theBombs.includes(userNumber)){
+    //         // il gioco termina
+    //         gamePlay = false
+    //         alert('Hai perso')
 
-        
-        // se il numero generato include il numero dell'utente
-        if(theBombs.includes(userNumber)){
-            // il gioco termina
-            gamePlay = false
-            alert('Hai perso')
+    //         // altrimenti
+    //     } else {
+    //         // se l'array vuoto non continiene usernumber 
+    //         if(!arrayUserNumber.includes(userNumber)){
+    //             // lo pushamo
+    //             arrayUserNumber.push(userNumber);
+    //             console.log(arrayUserNumber)
+    //         }
 
-            // altrimenti
-        } else {
-            // se l'array vuoto non continiene usernumber 
-            if(!arrayUserNumber.includes(userNumber)){
-                // lo pushamo
-                arrayUserNumber.push(userNumber);
-                console.log(arrayUserNumber)
-            }
-
-            // definiamo la vittoria
-            if (arrayUserNumber.length === userAttempts){
-                alert('hai vinto')
-            }
-        }
-        console.log(arrayUserNumber) 
-    }
+    //         // definiamo la vittoria
+    //         if (arrayUserNumber.length === userAttempts){
+    //             alert('hai vinto')
+    //         }
+    //     }
+    //     console.log(arrayUserNumber) 
+    //}
 
     let numberOK = alert('hai indovinato ' + arrayUserNumber.length + ' numeri') 
 
+    // FUNZIONI CHE MANIPOLNO IL DOM
+
+    // Genero una griglia
+    function generateGrid(){
+        // aggiungo una classe all'elemento richiamato dal DOM
+        grid.classList.add(gridClass);
+        
+        // creo una nuova cella
+        // for(i = 1; i <= )
+        
+    }
+
 }
 
-console.log(myBtn)
+
+
+
 
 //---------
     // FUNCTION

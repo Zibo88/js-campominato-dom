@@ -44,12 +44,38 @@ body{
    margin: 0 auto;
 }
 
-.main-grid {
+#main-grid {
     width: 500px;
     height: 500px;
     background-color: black;
     margin: 0 auto;
     margin-top: 1rem;
+}
+
+.square {
+    border: 1px solid;
+    background-color: #7fffd3;
+}
+
+#main-grid.easy .square{
+    width: calc(100 / 10);
+    height: calc(100 / 9);
+    border: 1px solid;
+    background-color: #7fffd3;
+}
+
+#main-grid.hard .square{
+    width: calc(100 / 9);
+    height: calc(100 / 9);
+    border: 1px solid;
+    background-color: #7fffd3;
+}
+
+#main-grid.crazy .square{
+    width: calc(100 / 7);
+    height: calc(100 / 7);
+    border: 1px solid;
+    background-color: #7fffd3;
 }
 
 
