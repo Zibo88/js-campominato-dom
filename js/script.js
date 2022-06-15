@@ -26,10 +26,8 @@ const myBtn = document.getElementById('my-btn');
 const grid = document.getElementById('main-grid');
 console.log('questo è grid', grid);
 
- // creo una variabiale che definisca il numeroMax di celle divise per livello di difficoltà
+// Classe aggiunta agli square che varia in base al rangeMax
 let gridClass;
-let rangeMax;
-let dificultLevel;
 
 // da quando il bottone viene cliccato parte il gioco
 myBtn.addEventListener('click', gameStart)
@@ -42,6 +40,10 @@ myBtn.addEventListener('click', gameStart)
 
 function gameStart(){
 
+     // creo una variabiale che definisca il numeroMax di celle divise per livello di difficoltà
+
+    let rangeMax;
+    let dificultLevel;
 
     // Raccolta dati
     // Chiedo all'utente che livello di difficioltà vuole scegliere
@@ -102,8 +104,31 @@ function gameStart(){
         // console.log('questi sono i numeri', rangeMax[i])
 
         }
+        // creo la funzione che permette di dare il comando di click
+        function clikToSquare(){
+            // lcreo una variabile che accoglierà i numeri dell'utente
+            let userNumber = document.querySelectorAll('.square');
+            console.log('usernum', userNumber)
+            // creo un ciclo for per accedere a tutti i numeri
+            for(i = 0; i < rangeMax.length; i ++){
 
-        
+                let squareReader = parseInt(userNumber[i].querySelectorAll('span').innerHTML);
+                console.log(squareReader)
+
+             }
+            // se il numero è incluso in theBombs la cella si colora di rosso e l'utente ha perso
+            
+            if(theBombs.includes(userNumber)){
+                userNumber[i].classList.add('red')
+                alert('hai perso')
+            }else if (!theBombs.includes(userNumber)){
+                userNumber[i].classList.add('blue')
+            }
+            // altrimenti ls cella diventa di colore azzurro e pusho il numero arrayUserNumber
+                //quando la lunghezza dell'array è uguale userAttempts
+
+
+        }
 
 }
 
